@@ -1,0 +1,16 @@
+[Unit]
+Description=TTYShare server service
+After=network.target
+
+[Service]
+ExecStart=/var/www/tty-server/tty-server -web_address localhost:8080 -url http://tty.logger.software
+WorkingDirectory=/var/www/tty-server
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=60s
+User=mark
+
+[Install]
+WantedBy=multi-user.target
+
